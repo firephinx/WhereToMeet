@@ -3,6 +3,7 @@ package com.kevinleezhang.wheretomeet;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import com.facebook.Session;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -28,7 +29,17 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.facebook.SessionState;
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.simplelogin.FirebaseSimpleLoginError;
+import com.firebase.simplelogin.FirebaseSimpleLoginUser;
+import com.firebase.simplelogin.SimpleLogin;
+import com.firebase.simplelogin.SimpleLoginAuthenticatedHandler;
+
 public class MainActivity extends ActionBarActivity {
+
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
 
@@ -45,6 +56,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         mTitle = mDrawerTitle = getTitle();
