@@ -77,12 +77,12 @@ public class MainActivity extends ActionBarActivity {
                 R.string.navigation_drawer_close  /* "close drawer" description for accessibility */
         ) {
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle(mTitle);
+                getSupportActionBar().setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(mDrawerTitle);
+                getSupportActionBar().setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
@@ -112,6 +112,11 @@ public class MainActivity extends ActionBarActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    public void openmaps(){
+        Intent intent = new Intent(this, com.kevinleezhang.wheretomeet.MapsActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // toggle nav drawer on selecting action bar app icon/title
@@ -120,6 +125,9 @@ public class MainActivity extends ActionBarActivity {
         }
         // Handle action bar actions click
         switch (item.getItemId()) {
+            case R.id.maps:
+                openmaps();
+                return true;
             case R.id.action_settings:
                 return true;
             default:
@@ -146,22 +154,22 @@ public class MainActivity extends ActionBarActivity {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                //fragment = new HomeFragment();
+                fragment = new HomeFragment();
                 break;
             case 1:
-                //fragment = new FindPeopleFragment();
+                fragment = new FindPeopleFragment();
                 break;
             case 2:
-                //fragment = new RecordYourMovementFragment();
+                fragment = new RecordYourMovementFragment();
                 break;
             case 3:
-                //fragment = new TraceYourPathFragment();
+                fragment = new TraceYourPathFragment();
                 break;
             case 4:
-                //fragment = new AvoidanceManeuversFragment();
+                fragment = new AvoidanceManeuverFragment();
                 break;
             case 5:
-                //fragment = new AboutUsFragment();
+                fragment = new AboutUsFragment();
                 break;
 
             default:
@@ -187,7 +195,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        getActionBar().setTitle(mTitle);
+        getSupportActionBar().setTitle(mTitle);
     }
 
     /**
@@ -221,9 +229,74 @@ public class MainActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
-            View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+            return inflater.inflate(R.layout.fragment_home, container, false);
+        }
+    }
+    public static class FindPeopleFragment extends Fragment {
 
-            return rootView;
+        public FindPeopleFragment() {
+            // Empty constructor required for fragment subclasses
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+
+            return inflater.inflate(R.layout.fragment_findpeople, container, false);
+        }
+    }
+    public static class RecordYourMovementFragment extends Fragment {
+
+        public RecordYourMovementFragment() {
+            // Empty constructor required for fragment subclasses
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+
+            return inflater.inflate(R.layout.fragment_recordyourmovement, container, false);
+        }
+    }
+    public static class TraceYourPathFragment extends Fragment {
+
+        public TraceYourPathFragment() {
+            // Empty constructor required for fragment subclasses
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+
+            return inflater.inflate(R.layout.fragment_traceyourpath, container, false);
+        }
+    }
+
+    public static class AvoidanceManeuverFragment extends Fragment {
+
+        public AvoidanceManeuverFragment() {
+            // Empty constructor required for fragment subclasses
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+
+            return inflater.inflate(R.layout.fragment_avoidancemaneuver, container, false);
+        }
+    }
+
+    public static class AboutUsFragment extends Fragment {
+
+        public AboutUsFragment() {
+            // Empty constructor required for fragment subclasses
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+
+            return inflater.inflate(R.layout.fragment_aboutus, container, false);
         }
     }
 }
