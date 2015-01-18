@@ -8,9 +8,24 @@
         android:id="@+id/txtLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:textSize="16dp"
-        android:text="Find People"/>
+        android:text="Find Friends"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Check off the friends that you would like to meet along your designated path."
+        android:id="@+id/textView5"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity = "center_horizontal"
+        android:layout_below="@+id/txtLabel"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
